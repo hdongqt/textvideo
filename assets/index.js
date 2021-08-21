@@ -6,11 +6,11 @@ const control = $(".control");
 const content = $(".content");
 const r = $(":root");
 const controlBtn = $(".control");
-
-
+const video  = $("#video");
 const handelMode = () =>{
     var audio = document.getElementById("audio");
     audio.play();
+    video.play();
     let rs = getComputedStyle(r).getPropertyValue('--main');
     content.classList.toggle("active");
     switch (rs) {
@@ -25,11 +25,19 @@ const handelMode = () =>{
             control.style.backgroundColor = "white";
             break;
  }
+
+}
+
+const changeName = (name) =>{
+  content.innerText = name;
 }
 controlBtn.onclick = handelMode;
 
-
-
-function play() {
-  
-  }
+const inputName =$(".insert-input");
+inputName.onkeyup = function(e){
+    const name = e.target.value;
+    if(e.keyCode === 13){
+        changeName(name);
+        inputName.value = '';
+    }
+}
