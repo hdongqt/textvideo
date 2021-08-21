@@ -2,11 +2,13 @@ const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 const modeText =$(".mode-text");
+const mode =$(".mode");
 const control = $(".control");
 const content = $(".content");
 const r = $(":root");
 const controlBtn = $(".control");
 const video  = $("#video");
+const close  = $(".close");
 const handelMode = () =>{
     var audio = document.getElementById("audio");
     audio.play();
@@ -40,4 +42,7 @@ inputName.onkeyup = function(e){
         changeName(name);
         inputName.value = '';
     }
+}
+close.onclick =function(){
+ mode.style.display = 'none';
 }
